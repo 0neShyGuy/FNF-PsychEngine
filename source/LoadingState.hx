@@ -8,11 +8,14 @@ import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.util.FlxTimer;
 import flixel.math.FlxMath;
-
+import flixel.util.FlxColor;
 import openfl.utils.Assets;
 import lime.utils.Assets as LimeAssets;
 import lime.utils.AssetLibrary;
 import lime.utils.AssetManifest;
+import haxe.io.Path;
+import PlayState;
+import Song.SwagSong;
 
 import haxe.io.Path;
 
@@ -47,7 +50,7 @@ class LoadingState extends MusicBeatState
 		var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, 0xffcaff4d);
 		add(bg);
 		funkay = new FlxSprite(0, 0).loadGraphic(Paths.getPath('images/funkay.png', IMAGE));
-		funkay.setGraphicSize(0, FlxG.height);
+		funkay.setGraphicSize(FlxG.width, FlxG.height);
 		funkay.updateHitbox();
 		funkay.antialiasing = ClientPrefs.globalAntialiasing;
 		add(funkay);
@@ -73,11 +76,18 @@ class LoadingState extends MusicBeatState
 				checkLibrary("shared");
 				if(directory != null && directory.length > 0 && directory != 'shared') {
 					checkLibrary(directory);
+					trace('we there yet ' + directory);
 				}
 
 				var fadeTime = 0.5;
 				FlxG.camera.fade(FlxG.camera.bgColor, fadeTime, true);
-				new FlxTimer().start(fadeTime + MIN_TIME, function(_) introComplete());
+				trace('ng');
+				new FlxTimer().start(fadeTime + MIN_TIME, function(_) {
+					FlxG.camera.fade(FlxColor.BLACK, 0.2, false);
+					new FlxTimer().start(0.3, function(_) {
+						FlxG.switchState(target);
+				});
+			});
 			}
 		);
 	}

@@ -104,7 +104,7 @@ class NoteOffsetState extends MusicBeatState
 		coolText.x = FlxG.width * 0.35;
 
 		rating = new FlxSprite().loadGraphic(Paths.image('sick'));
-		rating.cameras = [camHUD];
+		rating.cameras = [camGame];
 		rating.setGraphicSize(Std.int(rating.width * 0.7));
 		rating.updateHitbox();
 		rating.antialiasing = ClientPrefs.globalAntialiasing;
@@ -112,7 +112,7 @@ class NoteOffsetState extends MusicBeatState
 		add(rating);
 
 		comboNums = new FlxSpriteGroup();
-		comboNums.cameras = [camHUD];
+		comboNums.cameras = [camGame];
 		add(comboNums);
 
 		var seperatedScore:Array<Int> = [];
@@ -125,7 +125,7 @@ class NoteOffsetState extends MusicBeatState
 		for (i in seperatedScore)
 		{
 			var numScore:FlxSprite = new FlxSprite(43 * daLoop).loadGraphic(Paths.image('num' + i));
-			numScore.cameras = [camHUD];
+			numScore.cameras = [camGame];
 			numScore.setGraphicSize(Std.int(numScore.width * 0.5));
 			numScore.updateHitbox();
 			numScore.antialiasing = ClientPrefs.globalAntialiasing;
@@ -259,7 +259,7 @@ class NoteOffsetState extends MusicBeatState
 			if (FlxG.mouse.justPressed)
 			{
 				holdingObjectType = null;
-				FlxG.mouse.getScreenPosition(camHUD, startMousePos);
+				FlxG.mouse.getScreenPosition(camGame, startMousePos);
 				if (startMousePos.x - comboNums.x >= 0 && startMousePos.x - comboNums.x <= comboNums.width &&
 					startMousePos.y - comboNums.y >= 0 && startMousePos.y - comboNums.y <= comboNums.height)
 				{
@@ -286,7 +286,7 @@ class NoteOffsetState extends MusicBeatState
 			{
 				if(FlxG.mouse.justMoved)
 				{
-					var mousePos:FlxPoint = FlxG.mouse.getScreenPosition(camHUD);
+					var mousePos:FlxPoint = FlxG.mouse.getScreenPosition(camGame);
 					var addNum:Int = holdingObjectType ? 2 : 0;
 					ClientPrefs.comboOffset[addNum + 0] = Math.round((mousePos.x - startMousePos.x) + startComboOffset.x);
 					ClientPrefs.comboOffset[addNum + 1] = -Math.round((mousePos.y - startMousePos.y) - startComboOffset.y);

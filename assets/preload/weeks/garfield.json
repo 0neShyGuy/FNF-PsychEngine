@@ -1,0 +1,32 @@
+{
+	"storyName": "GARFIELD",
+	"difficulties": "Hard",
+	"hideFreeplay": false,
+	"weekBackground": "Comic",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"Menu_gar",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"Monday",
+			"garicon",
+			[
+				255,
+				175,
+				0
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "VS. Garfield",
+	"hiddenUntilUnlocked": false
+}

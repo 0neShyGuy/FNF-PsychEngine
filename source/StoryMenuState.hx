@@ -202,6 +202,8 @@ class StoryMenuState extends MusicBeatState
 
 		scoreText.text = "WEEK SCORE:" + lerpScore;
 
+		lime.app.Application.current.window.title = "Monday Morning Mischief";
+
 		// FlxG.watch.addQuick('font', scoreText.font);
 
 		if (!movedBack && !selectedWeek)

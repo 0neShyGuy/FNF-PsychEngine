@@ -1,0 +1,11 @@
+{
+	"confirm_anim": "M Dad Idle",
+	"idle_anim": "GarfieldIDLE instance 1",
+	"position": [
+		812,
+		553
+	],
+	"scale": 0.2,
+	"image": "Menu_Gar",
+	"flipX": false
+}
